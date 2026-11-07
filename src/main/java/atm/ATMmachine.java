@@ -33,7 +33,7 @@ class ATM{
         }else if(choice == 3){
             depositMoney();
         }else if(choice == 4){
-            break;
+            return;
         }else {
             System.out.println("Inter valid choice:");
             menu();
@@ -45,9 +45,35 @@ class ATM{
         menu();
     }
     public void withdrawMoney(){
+        System.out.println("Enter amount: ");
+        Scanner sc = new Scanner(System.in);
+        float amount = sc.nextFloat();
 
+        if(amount > balance){
+            System.out.println("Insufficient funds!");
+        }else {
+            balance = balance - amount;
+            System.out.println("Money withdrawn successfully!");
+        }
+        menu();
+    }
+    public void depositMoney(){
+        System.out.println("Enter amount to deposit: ");
+        Scanner sc = new Scanner(System.in);
+        float amount = sc.nextFloat();
+        if(amount > balance){
+            System.out.println("Insufficient funds!");
+        }else {
+            balance = balance + amount;
+            System.out.println("Money deposited successfully!");
+        }
+        menu();
     }
 }
 
 public class ATMmachine {
+    public static void main(String[] args){
+        ATM obj = new ATM();
+        obj.checkPin();
+    }
 }
