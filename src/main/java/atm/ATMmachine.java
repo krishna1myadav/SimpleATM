@@ -1,4 +1,5 @@
 package atm;
+import atm.model.Account;
 
 import java.util.Scanner;
 
@@ -73,7 +74,16 @@ class ATM{
 
 public class ATMmachine {
     public static void main(String[] args){
-        ATM obj = new ATM();
-        obj.checkPin();
+        Account account = new Account(5000);
+
+        System.out.println("Balance: " + account.getBalance());
+
+        account.deposit(1000);
+
+        System.out.println("Balance: " + account.getBalance());
+
+        account.withdraw(2000);
+
+        System.out.println("Balance: " + account.getBalance());
     }
 }
