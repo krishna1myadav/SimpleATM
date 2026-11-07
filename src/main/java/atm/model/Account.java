@@ -1,6 +1,7 @@
 package atm.model;
 
 public class Account {
+
     private double balance;
     public Account(double balance){
         this.balance = balance;
