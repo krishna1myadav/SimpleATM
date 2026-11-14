@@ -22,14 +22,13 @@ public class Account {
         return true;
     }
 
-    public void withdraw(double amount){
-        if(amount <= 0){
-            System.out.println("invalid amount");
-        } else if (amount > balance) {
-            System.out.println("Insufficient funds!");
-        }else {
-            balance = balance - amount;
-            System.out.println("Money successfully deposited!");
+    public boolean withdraw(double amount) {
+
+        if (amount <= 0 || amount > balance) {
+            return false;
         }
+
+        balance -= amount;
+        return true;
     }
 }
